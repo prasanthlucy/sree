@@ -1,0 +1,52 @@
+--- 
+- 
+  hosts: web
+  name: "This sets up an httpd webserver"
+  tasks: 
+    - 
+      name: "Install httpd web packages"
+      yum: 
+        name: httpd
+        state: present
+    - 
+      name: "ensure httpd is running"
+      service: 
+        name: httpd
+        state: started
+    - 
+      copy: 
+        dest: /var/www/html/
+        src: /opt/index.html
+    - 
+      name: "Restart apache service"
+      service: 
+        name: httpd
+        state: restarted
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
